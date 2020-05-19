@@ -8,8 +8,10 @@ while nivel <= niveles:
     objeto = Costos(nivel, costo_total, costo_fijo)
     variable = objeto.costo_variable()
     medio_total = objeto.medio_total()
+    medio_variable = objeto.medio_variable()
     print(f"Costo variable: {variable}")
     print(f"Costo medio total: {medio_total}")
+    print(f"Costo medio variable: {medio_variable}")
     nivel = nivel + 1 
  
 

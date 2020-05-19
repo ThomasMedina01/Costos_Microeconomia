@@ -30,10 +30,19 @@ class Costos:
 
     def costo_variable (self):
         return self.__costo_total - self.__costo_fijo
+        
     
     def medio_total (self):
         if self.__nivel == 0:
             return 0
         return round (self.__costo_total / self.__nivel, 2)
+    
+    def medio_variable (self):
+        variable = self.__costo_total - self.__costo_fijo
+        if self.__nivel == 0:
+            return 0
+        return round (variable / self.__nivel, 2)
+        
+
     
     
