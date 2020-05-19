@@ -42,6 +42,12 @@ class Costos:
         if self.__nivel == 0:
             return 0
         return round (variable / self.__nivel, 2)
+
+    def medio_fijo (self):
+        if self.__nivel == 0:
+            return 0
+        return round (self.__costo_fijo / self.__nivel, 2)
+
         
 
     
