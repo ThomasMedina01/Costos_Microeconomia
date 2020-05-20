@@ -37,7 +37,7 @@ class Tabla():
 
 #prueba = Tabla(0, 20, 22, 0, 0)
 
-valor1 = int(input("Escriba su la cantidad producida: "))
+valor1 = int(input("¿Cuantos niveles de produccion desea registrar? "))
 valor2 = float(input("Escriba su costo total: "))
 valor3 = float(input("Escriba su precio de venta: "))
 prueba = Tabla(0, valor2, valor3, 0, 0)

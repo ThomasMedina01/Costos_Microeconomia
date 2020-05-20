@@ -1,22 +1,22 @@
-from Clases import Costos
+from Formulas import Tabla
 
-niveles = int(input("¿Cuantos niveles de produccion desea registrar? "))
-costo_fijo = int(input("¿Cual fue el costo fijo? "))
-nivel = 0
-while nivel <= niveles:
-    costo_total = int(input(f"Introduce el costo total del nivel de produccion numero {nivel}: "))
-    objeto = Costos(nivel, costo_total, costo_fijo)
-    variable = objeto.costo_variable()
-    medio_total = objeto.medio_total()
-    medio_variable = objeto.medio_variable()
-    medio_fijo = objeto.medio_fijo()
-    print(f"Costo fijo: {costo_fijo}")
-    print(f"Costo variable: {variable}")
-    print(f"Costo total: {costo_total}")
-    print(f"Costo medio total: {medio_total}")
-    print(f"Costo medio variable: {medio_variable}")
-    print(f"Costo medio fijo: {medio_fijo}")
-    nivel = nivel + 1 
+#prueba = Tabla(0, 20, 22, 0, 0)
+
+valor1 = int(input("¿Cuantos niveles de produccion desea registrar? (Comenzando desde el nivel 0): "))
+valor2 = float(input("Escriba su costo total: "))
+valor3 = float(input("Escriba su precio de venta: "))
+prueba = Tabla(0, valor2, valor3, 0, 0)
+print(prueba.vertablainicial())
+valor4 = valor2
+valor5 = valor2
+for a in range(1, valor1):
+    valor4 = valor2
+    valor2 = float(input("Escriba su costo total: "))
+    prueba = Tabla(a, valor2, valor3, valor4, valor5)
+    print(prueba.vertablafinal())
+    valor4 = valor3
+
+#print(prueba.vertablainicial())
  
 
 
