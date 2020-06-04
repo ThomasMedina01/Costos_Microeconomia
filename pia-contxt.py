@@ -87,13 +87,13 @@ if opcion == 1:
     tabulacion.close()
 
 if opcion == 2:
-    def tabular(q, p, ct, ctan):
+    def tabular(q, p, ct, ctan, itan,it):
         cm = ct - ctan
         cmt = round(ct / q, 3)
-        it = q * p
+        im = it - itan
         bop = it - ct
         formato = ""
-        formato += (f"{q}, {p}, {ct}, {cm}, {cmt}, {it}, {p}, {bop}")
+        formato += (f"{q}, {p}, {ct}, {cm}, {cmt}, {it}, {im}, {bop}")
         return formato
 
 
@@ -101,10 +101,16 @@ if opcion == 2:
     p = int(input("Escriba su precio de venta: "))
     ct = int(input("Escriba su costo total: "))
     ctn = 0
-    print(tabular(1, p, ct, ctn))
+    itan = 0
+    it = p
+    tabla = tabular(1, p, ct, ctn, itan, it)
+    print(tabla)
     for a in range(1, q+1):
         ctn = ct
+        itan = it
         p = int(input("Escriba su precio de venta: "))
         ct = int(input("Escriba su costo total: "))
         n = a + 1
-        print(tabular(n, p, ct, ctn))
+        it = p*n
+        tabla = tabular(1, p, ct, ctn, itan, it)
+        print(tabla)
