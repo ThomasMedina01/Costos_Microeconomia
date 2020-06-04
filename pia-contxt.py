@@ -34,53 +34,77 @@ class Tabla():
         self.formato += (f"{self.q: 5} {self.cft: 10} {self.cvt: 10} {self.ct: 10} {self.cmt: 10} {self.cmv: 10} {self.cmf: 10} {self.cm: 10} {self.it: 10} {self.im: 10} {self.bop: 10}\n")
         return self.formato
 
-#prueba = Tabla(0, 20, 22, 0, 0)
+opcion = int(input("1.-tabla normal \n2.-tabla para el examen \n"))
 
-while True:
-    valor1 = input("Escriba su la cantidad producida: ")
-    if valor1.isdigit():
-        valor1 = int(valor1)
-        break
-    else:
-        print("Valor incorrecto intente de nuevo")
+if opcion == 1:
+    while True:
+        valor1 = input("Escriba su la cantidad producida: ")
+        if valor1.isdigit():
+            valor1 = int(valor1)
+            break
+        else:
+            print("Valor incorrecto intente de nuevo")
 
-while True:    
-    valor2 = input("Escriba su 1° costo total: ")
-    if valor2.isdigit():
-        valor2 = float(valor2)
-        break
-    else:
-        print("Valor incorrecto intente de nuevo")
-
-while True:
-    valor3 = input("Escriba su precio de venta: ")
-    if valor3.isdigit():
-        valor3 = float(valor3)
-        break
-    else:
-        print("Valor incorrecto intente de nuevo")
-
-tabulacion = open("tabla.txt", "w")
-prueba = Tabla(0, valor2, valor3, 0, 0)
-print(prueba.vertablainicial())
-tabulacion.write('%s'%prueba.vertablainicial())
-
-valor4 = valor2
-valor5 = valor2
-
-for a in range(1, valor1):
-    valor4 = valor2
     while True:    
-        valor2 = input(f"Escriba su {a+1}° costo total: ")
+        valor2 = input("Escriba su 1° costo total: ")
         if valor2.isdigit():
             valor2 = float(valor2)
             break
         else:
             print("Valor incorrecto intente de nuevo")
-    
-    prueba = Tabla(a, valor2, valor3, valor4, valor5)
-    print(prueba.vertablafinal())
-    tabulacion.write('%s'%prueba.vertablafinal())
-    valor4 = valor3
 
-tabulacion.close()
+    while True:
+        valor3 = input("Escriba su precio de venta: ")
+        if valor3.isdigit():
+            valor3 = float(valor3)
+            break
+        else:
+            print("Valor incorrecto intente de nuevo")
+
+    tabulacion = open("tabla.txt", "w")
+    prueba = Tabla(0, valor2, valor3, 0, 0)
+    print(prueba.vertablainicial())
+    tabulacion.write('%s'%prueba.vertablainicial())
+
+    valor4 = valor2
+    valor5 = valor2
+
+    for a in range(1, valor1):
+        valor4 = valor2
+        while True:    
+            valor2 = input(f"Escriba su {a+1}° costo total: ")
+            if valor2.isdigit():
+                valor2 = float(valor2)
+                break
+            else:
+                print("Valor incorrecto intente de nuevo")
+        
+        prueba = Tabla(a, valor2, valor3, valor4, valor5)
+        print(prueba.vertablafinal())
+        tabulacion.write('%s'%prueba.vertablafinal())
+        valor4 = valor3
+
+    tabulacion.close()
+
+if opcion == 2:
+    def tabular(q, p, ct, ctan):
+        cm = ct - ctan
+        cmt = round(ct / q, 3)
+        it = q * p
+        bop = it - ct
+        formato = ""
+        formato += (f"{q}, {p}, {ct}, {cm}, {cmt}, {it}, {p}, {bop}")
+        return formato
+
+
+    q = int(input("Escriba su cantidad producida: "))
+    p = int(input("Escriba su precio de venta: "))
+    ct = int(input("Escriba su costo total: "))
+    ctn = 0
+    print(tabular(1, p, ct, ctn))
+    for a in range(1, q+1):
+        ctn = ct
+        p = int(input("Escriba su precio de venta: "))
+        ct = int(input("Escriba su costo total: "))
+        n = a + 1
+        print(tabular(n, p, ct, ctn))
